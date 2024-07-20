@@ -20,6 +20,8 @@ import { parseStringify } from "../utils";
 export const createUser = async (user: CreateUserParams) => {
   try {
     // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
+    console.log("Before");
+    console.log(user);
 
     const newuser = await users.create(
       ID.unique(),
@@ -28,6 +30,8 @@ export const createUser = async (user: CreateUserParams) => {
       undefined,
       user.name
     );
+
+    console.log("After");
     console.log(newuser);
 
     return parseStringify(newuser);
